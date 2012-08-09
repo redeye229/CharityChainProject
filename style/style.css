@@ -1,0 +1,17 @@
+img{
+	
+}
+#cover{
+	border-width: 30px;
+	border-color:black;
+	border-radius:50px;
+	text-align: center;
+/*	box-shadow: 10px;
+ * 
+ */
+
+}
+#octocat{
+	position:relative;
+}
+
