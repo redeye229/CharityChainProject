@@ -1,17 +1,26 @@
-img{
-	
+#title{
+	padding:5px;
+	position:absolute;
+	text-align:center;
+	margin-left:250px;
+	background-color:white;
+	width:500px;
 }
-#cover{
-	border-width: 30px;
-	border-color:black;
-	border-radius:50px;
-	text-align: center;
-/*	box-shadow: 10px;
- * 
- */
-
+#main{
+	border:2px solid;
+	border-radius:20px;
+	box-shadow:10px 10px 5px #888888;
+	padding:5px;
+	position:absolute;
+	margin-top:130px;
+	margin-left:150px;
+	margin-right:150px;
+	width:700px;
 }
-#octocat{
-	position:relative;
+#nav{
+	position:absolute;
+	width:125px;
+	margin-top:130px;
+	padding:5px;
 }
 
