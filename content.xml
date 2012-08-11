@@ -1,9 +1,19 @@
 <?xml version="1.0"?>
+<!--
+	This is where content generation happens
+	HOW TO USE:
+		1. 
+	
+	
+-->
 <content>
-	<index>
-		<main_discription>
+	<index><!-- This tag defines what page the content is on-->
+		<main_discription> 
+			<!-- this is the LOCATION_ID try and keep them as close to the div id found in the structure of the page
+							for simpler reading -->
 			This is a website that pulls data from a context file, I wonder if this is a good idea...
 			More data will be placed here, and eventually a whole discription of the system! Kinda cool right?
+			<!-- TO DO: Generate ligitamate content-->
 		</main_discription>
 	</index>
 </content>
