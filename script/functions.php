@@ -1,10 +1,11 @@
 <?php
-#this part at the top is used in response to AJAX requests and sends the requests to the proper functions
-if(array_key_exists("userID", $_GET)){
-		//echo "got";
-		userCheck($_GET["userID"]);
-}else{
 
+#this part at the top is used in response to AJAX requests and sends the requests to the proper functions
+if(isset($_GET['userID'])){
+	userCheck($_GET['userID']);
+}elseif (isset($_GET['uname']) && isset($_GET['pwd'])) {
+	userLogin($_GET['uname'],$_GET['pwd']);
+	//echo "got someting!";
 }
 #The contentGen function takes an XML file, looks through it and returns the text between the corrisponding LOCATION_ID tags
 function contentGen($URI,$LOCATION_ID){
@@ -25,14 +26,30 @@ function contentGen($URI,$LOCATION_ID){
 
 function userCheck($userID){
 	if(db('verify',$userID)){
-		echo "DAT USER BE ALL UP IN HER";
+		echo 1;
 	}else{
-		echo "NA DAWG HE AIN'T HER";
+		echo 0;
 	}
-	//TO DO: Integrate mySQL database for user verification
 }
-
-function db($option,$data){//All Database operations will be run through this function for less replication of code
+function userLogin($uname,$pwd){
+	$data=array($uname,$pwd);
+	$response=db('login',$data);
+	if(!(int)($response)){
+		echo $response;
+	}else{
+		setcookie('userID',$response,0,'/');//TODO: Make "Keep me logged in for 30 days" option
+		echo "Set cookie $response";
+	}
+}
+  
+ /**
+ * Function db($options,$data) is a way to consolidate all mySQL functions to a single space. Options are not case sensitive 
+ * Currently supported options:
+ * 		'VERIFY': requires a user id number and returns true if the user exists and false otherwise. 
+ * 		'LOGIN': Returns userID on sucess and error strings on failure
+ * 		'SIGNUP': TODO: Create db signup function
+ **/
+function db($option,$data){
 	$option=strtoupper($option);
 	$con=mysql_connect("localhost","php","12345");
 	if(!$con){
@@ -50,10 +67,24 @@ function db($option,$data){//All Database operations will be run through this fu
 				}else{
 					return TRUE;
 				}
-				break;
+			break;
+			case 'LOGIN':
+				$query="SELECT * FROM `Chain`.`users` WHERE `username`='$data[0]'";
+				$result = mysql_query($query,$con) or die('mySQL error:'+mysql_error());				
+				$row=mysql_fetch_array($result);
+				if($row=="" || $row==NULL){
+					return "Incorrect Username";
+				}else{
+					if($data[1]==$row['password']){
+						return $row['userID'];
+					}else{
+						return "Incorrect Password";
+					}
+				}
+			break;
 			default:
-				echo "Well here's your problem!";
-				break;
+				return "Unrecognized command";
+			break;
 		}
 	}
 	mysql_close($con);

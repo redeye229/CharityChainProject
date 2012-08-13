@@ -23,4 +23,43 @@
 	margin-top:130px;
 	padding:5px;
 }
-
+#loginForm{
+	visibility:hidden;
+	position:fixed;
+	margin-top:100px;
+	margin-left:400px;
+	background-color:white;
+	border:solid;
+	padding:15px;
+	border-width: 2px;
+	border-radius: 25px;
+	z-index: 10; 
+	
+}
+.dim
+{
+	height:100%;
+	width:100%;
+	position:fixed;
+	left:0;
+	top:0;
+	z-index:1;
+	background-color:black;
+	filter: alpha(opacity=75); /* internet explorer */
+	-khtml-opacity: 0.75;      /* khtml, old safari */
+	-moz-opacity: 0.75;       /* mozilla, netscape */
+	opacity: 0.75;           /* fx, safari, opera */
+}
+#dimmer{
+	visibility:hidden;
+	
+}
+.signup{
+	visibility:collapse;
+	position:absolute;
+	
+}
+#loginButtons{
+	
+	
+}
