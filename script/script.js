@@ -86,6 +86,7 @@ function userSignup(){
 		ajax(2,dataString);
 		var rescheck=setInterval(function(){
 			if(response!=null){
+				alert(response);
 				clearInterval(rescheck);	
 			}
 			clearInterval(rescheck);

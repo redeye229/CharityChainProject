@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-
+<?php error_reporting(-1) ?>
 <!--
 	This is the basic structure of the document, written by Ben Saletta
 	all design, functionalty, and content will be added via external documents
@@ -13,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 	<?php include 'script/functions.php'; ?>
 </head>	
-<body onload="userCheck()">
+<body>
 		<div id="loginForm">
 		<table>
 		<tr>
@@ -38,7 +38,7 @@
 		 </div>
 <div id="container">
 	<div id="main">
-		<?php echo contentGen("content.xml", "main_discription"); ?>
+		<?php echo contentGen("main_discription"); ?>
 		 <input type="button" value="JS test" onclick="userCheck()" />
 		 </div>
 		 <span id="testspace"><?php //userLogin("root","1234"); ?></span>
