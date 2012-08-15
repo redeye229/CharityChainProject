@@ -16,4 +16,12 @@
 			<!-- TODO: Generate ligitamate content-->
 		</main_discription>
 	</index>
+	<utilites>
+		<!-- This is the content of the email that the user will get when they sign up to confirm the existance of said email-->
+		<confirm_email>
+			Thank you for signing up for the Charity Chain! I wish you much luck in your endevors and I know that you will be a valuable resource
+			in the fight for the rights of the underprivledged and all that good stuff. Please click on the link below to verify your existance,
+			we can't wait to see what kind of impact you will have!
+		</confirm_email>
+	</utilites>
 </content>
